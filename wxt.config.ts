@@ -1,0 +1,19 @@
+import { defineConfig } from 'wxt';
+import path from 'path';
+
+// See https://wxt.dev/api/config.html
+export default defineConfig({
+  modules: ['@wxt-dev/module-react'],
+  manifest: {
+    name: "Product Genius QA Assistant",
+    description: "A quality assurance tool for the Product Genius team, for monitoring and testing of the plugin across Shopify stores.",
+    permissions: ["activeTab"],
+  },
+  vite: () => ({
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, "./"),
+      },
+    },
+  }),
+});
