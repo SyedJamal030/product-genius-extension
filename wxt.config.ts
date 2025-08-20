@@ -5,7 +5,7 @@ import path from 'path';
 export default defineConfig({
   modules: ['@wxt-dev/module-react'],
   manifest: {
-    name: "Product Genius QA Assistant",
+    name: "Product Genius QA Toolkit",
     description: "A quality assurance tool for the Product Genius team, for monitoring and testing of the plugin across Shopify stores.",
     permissions: ["activeTab"],
   },
