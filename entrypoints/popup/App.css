@@ -60,7 +60,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  color: #262626;
+  color: rgb(96, 109, 145);
   transition: all ease-in-out 0.1s;
   cursor: pointer;
 }
@@ -80,5 +80,12 @@
 @media (prefers-color-scheme: dark) {
   .footer__nav--item {
     color: rgb(143, 152, 166);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .bar--bottom,
+  .bar--top {
+    border-color: rgb(168, 179, 200);
   }
 }
