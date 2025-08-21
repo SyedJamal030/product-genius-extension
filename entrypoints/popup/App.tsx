@@ -1,34 +1,79 @@
-import { useState } from 'react';
-import reactLogo from '@/assets/react.svg';
-import wxtLogo from '/wxt.svg';
-import './App.css';
+import { Fragment, useState } from "react";
+import { ConfigIcon, OverrideIcon, ParseIcon, StatusIcon, TimeIcon } from "./components/Icons";
+import NavItem from "./components/NavItem";
 
+import PGLogo from "/pg-logo.png";
+import "./App.css";
+
+const SESSION_STORAGE_KEY = "lastSelectedPGTab";
 function App() {
-  const [count, setCount] = useState(0);
+  const [selectedTab, setSelectedTab] = useState(() => {
+    return sessionStorage.getItem(SESSION_STORAGE_KEY) || "status";
+  });
+
+  useEffect(() => {
+    sessionStorage.setItem(SESSION_STORAGE_KEY, selectedTab);
+  }, [selectedTab]);
+
+  const handleTabClick = useCallback((tabName: string) => {
+    setSelectedTab(tabName);
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://wxt.dev" target="_blank">
-          <img src={wxtLogo} className="logo" alt="WXT logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>WXT + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the WXT and React logos to learn more
-      </p>
-    </>
+    <Fragment>
+      <header className="header bar bar--top" tabIndex={1}>
+        <div className="header-logo-wrapper">
+          <img
+            alt="Company Logo"
+            className="pg-logo"
+            src={PGLogo}
+            width={32}
+            height={32}
+          />
+          <h1 className="company_name">Product Genius</h1>
+        </div>
+      </header>
+      <main className="main main-content"></main>
+      <footer className="footer bar bar--bottom">
+        <menu className="footer-navigation">
+          <NavItem
+            icon={<StatusIcon />}
+            label="Status"
+            tab="status"
+            selectedTab={selectedTab}
+            onClick={handleTabClick}
+          />
+          <NavItem
+            icon={<ParseIcon />}
+            label="Parsing"
+            tab="parse"
+            selectedTab={selectedTab}
+            onClick={handleTabClick}
+          />
+          <NavItem
+            icon={<TimeIcon />}
+            label="Timing"
+            tab="timing"
+            selectedTab={selectedTab}
+            onClick={handleTabClick}
+          />
+          <NavItem
+            icon={<OverrideIcon />}
+            label="Override"
+            tab="override"
+            selectedTab={selectedTab}
+            onClick={handleTabClick}
+          />
+          <NavItem
+            icon={<ConfigIcon />}
+            label="Config"
+            tab="config"
+            selectedTab={selectedTab}
+            onClick={handleTabClick}
+          />
+        </menu>
+      </footer>
+    </Fragment>
   );
 }
 
