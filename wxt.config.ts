@@ -7,7 +7,7 @@ export default defineConfig({
   manifest: {
     name: "Product Genius QA Toolkit",
     description: "A quality assurance tool for the Product Genius team, for monitoring and testing of the plugin across Shopify stores.",
-    permissions: ["activeTab"],
+    permissions: ["activeTab", "storage"],
   },
   vite: () => ({
     resolve: {
