@@ -4,7 +4,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(243, 246, 249, 0.87);
   background-color: #242424;
 
   font-synthesis: none;
@@ -23,7 +23,7 @@ body {
 
 #root {
   --header--height: 3.5rem;
-  --footer--height: 3rem;
+  --footer--height: 3.5rem;
   display: grid;
   grid-template-rows: var(--header--height) auto var(--footer--height);
   grid-template-columns: 1fr;

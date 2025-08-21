@@ -24,6 +24,7 @@ export const NavItem = ({
       title={label}
     >
       <span className="footer__nav--icon">{icon}</span>
+      <span className="footer__nav--text">{label}</span>
     </button>
   );
 };
