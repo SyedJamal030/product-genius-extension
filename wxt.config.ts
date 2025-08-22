@@ -9,8 +9,7 @@ export default defineConfig({
     name: "Product Genius QA Toolkit",
     description:
       "A quality assurance tool for the Product Genius team, for monitoring and testing of the plugin across Shopify stores.",
-    permissions: ["activeTab", "storage", "webRequest"],
-    host_permissions: ["https://app.productgenius.io/*", "https://facetchat.*.gmln.io/*"],
+    permissions: ["activeTab", "storage", "scripting"],
   },
   vite: () => ({
     resolve: {

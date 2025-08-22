@@ -6,7 +6,11 @@ export const UseMountStatus = () => {
   const checkWrapperExistence = useCallback(async () => {
     try {
       setLoading(true);
-      if (!browser || !browser.tabs || !browser.scripting) {
+      if (
+        typeof browser === "undefined" ||
+        !browser.tabs ||
+        !browser.scripting
+      ) {
         throw new Error(
           "Browser Extension API not available (run as an actual extension to check)."
         );

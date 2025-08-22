@@ -19,54 +19,67 @@ const Performance = () => {
   );
   const [loading, setLoading] = useState(true);
   const getPerformanceData = useCallback(() => {
-    setLoading(true);
-    browser.tabs.query({ active: true, currentWindow: true }, (tabs: any) => {
-      if (!tabs || tabs.length === 0) {
-        console.error("No active tab found.");
-        setLoading(false);
-        return;
+    try {
+      setLoading(true);
+      if (
+        typeof browser === "undefined" ||
+        !browser.tabs ||
+        !browser.scripting
+      ) {
+        throw new Error("Browser Extension API not available.");
       }
-
-      const tabId = tabs[0].id;
-      if (!tabId) {
-        console.error("No tab ID found.");
-        setLoading(false);
-        return;
-      }
-
-      browser.scripting.executeScript(
-        {
-          target: { tabId: tabId },
-          func: () => {
-            return performance.getEntriesByType("resource").map((entry) => ({
-              name: entry.name,
-              duration: entry.duration,
-            }));
-          },
-        },
-        (results: any) => {
-          if (browser.runtime.lastError) {
-            console.error(
-              "Script injection failed:",
-              browser.runtime.lastError.message
-            );
-            setLoading(false);
-            return;
-          }
-
-          if (results && results[0] && results[0].result) {
-            // Filter the results to only include the URLs we care about.
-            const filteredData = results[0].result.filter((entry: any) =>
-              trackedUrls.some((url) => entry.name.includes(url))
-            );
-            setPerformanceData(filteredData);
-          } else {
-            setPerformanceData([]);
-          }
+      browser.tabs.query({ active: true, currentWindow: true }, (tabs: any) => {
+        if (!tabs || tabs.length === 0) {
+          console.error("No active tab found.");
           setLoading(false);
+          return;
         }
-      );
-    });
+
+        const tabId = tabs[0].id;
+        if (!tabId) {
+          console.error("No tab ID found.");
+          setLoading(false);
+          return;
+        }
+
+        browser.scripting.executeScript(
+          {
+            target: { tabId: tabId },
+            func: () => {
+              return performance.getEntriesByType("resource").map((entry) => ({
+                name: entry.name,
+                duration: entry.duration,
+              }));
+            },
+          },
+          (results: any) => {
+            if (browser.runtime.lastError) {
+              console.error(
+                "Script injection failed:",
+                browser.runtime.lastError.message
+              );
+              setLoading(false);
+              return;
+            }
+
+            if (results && results[0] && results[0].result) {
+              // Filter the results to only include the URLs we care about.
+              const filteredData = results[0].result.filter((entry: any) =>
+                trackedUrls.some((url) => entry.name.includes(url))
+              );
+              setPerformanceData(filteredData);
+            } else {
+              setPerformanceData([]);
+            }
+            setLoading(false);
+          }
+        );
+      });
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
   useEffect(() => {
@@ -94,7 +107,9 @@ const Performance = () => {
         </div>
         {performanceData.map((entry, index) => (
           <div key={index} className="performance-list-item">
-            <span className="resource-name" title={entry.name}>{entry.name}</span>
+            <span className="resource-name" title={entry.name}>
+              {entry.name}
+            </span>
             <span className="resource-duration">
               {entry.duration.toFixed(2)}
             </span>
