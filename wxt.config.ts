@@ -3,6 +3,7 @@ import path from 'path';
 
 // See https://wxt.dev/api/config.html
 export default defineConfig({
+  webExt: { disabled: true },
   modules: ['@wxt-dev/module-react'],
   manifest: {
     name: "Product Genius QA Toolkit",

@@ -1,0 +1,201 @@
+.plugin-monitor-container {
+  max-width: 600px;
+  width: 100%;
+  background-color: var(--card-background);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.plugin-monitor-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--header-text);
+  font-size: 14px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.plugin-monitor-header .icon {
+  width: 16px;
+  height: 16px;
+  color: var(--header-text);
+}
+
+.dashboard-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.dashboard-title h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 5px;
+}
+
+.dashboard-title p {
+  color: var(--info-text);
+  font-size: 14px;
+  margin: 0;
+}
+
+.status-card {
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid;
+}
+
+.status-card.active {
+  background-color: var(--status-active-bg);
+  border-color: var(--status-active-border);
+}
+
+.status-card.inactive {
+  background-color: var(--status-inactive-bg);
+  border-color: var(--status-inactive-border);
+}
+
+.status-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 15px;
+}
+
+.status-card.active .status-icon {
+  background-color: var(--status-active-message);
+}
+
+.status-card.inactive .status-icon {
+  background-color: var(--status-inactive-message);
+}
+
+.status-icon .check-icon,
+.status-icon .alert-icon-svg {
+  width: 40px;
+  height: 40px;
+  color: #fff;
+}
+
+.status-heading {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 5px;
+}
+
+.status-card.active .status-heading {
+  color: var(--status-active-heading);
+}
+
+.status-card.inactive .status-heading {
+  color: var(--status-inactive-heading);
+}
+
+.status-message {
+  font-size: 14px;
+  margin: 0 0 15px;
+}
+
+.status-card.active .status-message {
+  color: var(--status-active-message);
+}
+
+.status-card.inactive .status-message {
+  color: var(--status-inactive-message);
+}
+
+.operational-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 15px;
+}
+
+.status-card.active .operational-tag {
+  background-color: var(--status-active-bg);
+  color: var(--status-active-heading);
+}
+
+.status-card.inactive .operational-tag {
+  background-color: var(--status-inactive-bg);
+  color: var(--status-inactive-heading);
+}
+
+.refresh-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100% !important;
+  background-color: var(--refresh-button-bg);
+  color: var(--info-text);
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  user-select: none;
+  border: 1px solid var(--refresh-button-border);
+  margin-bottom: 20px;
+}
+
+.refresh-button:hover {
+  background-color: var(--refresh-button-hover);
+}
+
+.refresh-button .refresh-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.system-info-card {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--card-background);
+  border: 1px solid var(--info-card-border);
+}
+
+.system-info-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--header-text);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.system-info-header .alert-icon {
+  width: 18px;
+  height: 18px;
+  color: #fbc02d;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 14px;
+  border-bottom: 1px solid var(--divider);
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  color: var(--info-text);
+}
+
+.info-value {
+  color: var(--info-value);
+  font-weight: 500;
+}
