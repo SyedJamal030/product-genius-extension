@@ -1,7 +1,7 @@
 import React from "react";
 import { UseMountStatus } from "../hooks/MountStatus";
 import LoadingSpinner from "./LoadingSpinner";
-import "./PluginStatusDashboard.css";
+import "./component.css";
 
 const PluginStatusDashboard = () => {
   const { pgEnabled, loading, checkWrapperExistence, lastChecked } = UseMountStatus();
@@ -45,7 +45,7 @@ const PluginStatusDashboard = () => {
         </svg>
         <span>Plugin Monitor</span>
       </div>
-      <div className="dashboard-title">
+      <div className="document-title">
         <h1>System Status Dashboard</h1>
         <p>Monitor your plugin installation and activity status</p>
       </div>

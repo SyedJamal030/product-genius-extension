@@ -10,14 +10,24 @@
   --link-color: rgb(96, 109, 145);
   --accent-color: #e63946;
 
-  --status-active-bg: #e6f6e6;
-  --status-active-border: #c9e9c9;
+  --status-active-bg: #e6f6e679;
+  --status-active-border: #c9e9c979;
+
   --status-active-heading: #2e7d32;
   --status-active-message: #4caf50;
-  --status-inactive-bg: #fff7e6;
-  --status-inactive-border: #ffe0b2;
+
+  --status-inactive-bg: #fff7e679;
+  --status-inactive-border: #ffe0b279;
+
   --status-inactive-heading: #ef6c00;
   --status-inactive-message: #ffa726;
+
+  --status-active-badge-bg: #e6f6e6;
+  --status-active-badge-border: #c9e9c9;
+
+  --status-inactive-badge-bg: #fff7e6;
+  --status-inactive-badge-border: #ffe0b2;
+
   --refresh-button-bg: #f0f2f5;
   --refresh-button-hover: #e0e2e5;
   --refresh-button-border: #ddd;
@@ -39,12 +49,22 @@
 
     --status-active-bg: #1f3621;
     --status-active-border: #2c4a2e;
+
     --status-active-heading: #a5d6a7;
     --status-active-message: #81c784;
-    --status-inactive-bg: #382c1e;
-    --status-inactive-border: #4d3f27;
+
+    --status-inactive-bg: #382c1e79;
+    --status-inactive-border: #4d3f2779;
+
     --status-inactive-heading: #ffb74d;
     --status-inactive-message: #ffb74d;
+
+    --status-active-badge-bg: #1f362179;
+    --status-active-badge-border: #1f362179;
+
+    --status-inactive-badge-bg: #382c1e;
+    --status-inactive-badge-border: #4d3f27;
+
     --refresh-button-bg: #2a2a2a;
     --refresh-button-hover: #3a3a3a;
     --refresh-button-border: #444;

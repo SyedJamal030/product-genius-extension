@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 
 import {
   ConfigIcon,
@@ -10,9 +10,11 @@ import {
 import NavItem from "./components/NavItem";
 import ConfigOverrides from "./components/ConfigOverrides";
 import PGStatusScreen from "./components/PluginStatusDashboard";
+import Performance from "./components/Performance";
 
 import PGLogo from "/pg-logo.png";
 import "./App.css";
+import UnderDevelopment from "./components/UnderDevelopment";
 
 const SESSION_STORAGE_KEY = "lastSelectedPGTab";
 function App() {
@@ -32,6 +34,11 @@ function App() {
     switch (selectedTab) {
       case "status":
         return <PGStatusScreen />;
+      case "parse":
+      case "override":
+        return <UnderDevelopment />;
+      case "timing":
+        return <Performance />;
       case "config":
         return <ConfigOverrides />;
       default:
